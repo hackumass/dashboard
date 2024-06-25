@@ -35,11 +35,14 @@ if os.path.exists('resumes_out/'):
 os.mkdir('resumes_out')
 for line in reader:
     print('Downloading', line)
-    if not os.path.exists('resumes_out/{}'.format(line[2].title())):
-        os.mkdir('resumes_out/{}'.format(line[2].title()))
+    folder_name = line[2].title()
+    # replace '/' with '_' in folder name
+    folder_name = folder_name.replace('/', '_')
+    if not os.path.exists('resumes_out/{}'.format(folder_name)):
+        os.mkdir('resumes_out/{}'.format(folder_name))
     r = requests.get('{}/resume/{}'.format(blob_path, line[1]), allow_redirects=True)
     if r.status_code != 404:
-        open('resumes_out/{}/{}.pdf'.format(line[2].title(), line[0].title()), 'wb').write(r.content)
+        open('resumes_out/{}/{}.pdf'.format(folder_name, line[0].title()), 'wb').write(r.content)
     else:
         print('No resume for', line[0], '(HTTP 404)')
 # To ensure there are no 404's that were saved, run:
