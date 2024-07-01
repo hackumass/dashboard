@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2023_10_09_025205) do
     t.string "gender"
     t.string "pronoun"
     t.json "custom_fields"
-    t.boolean "mlh_communications"
+    t.boolean "mlh_communications", default: false
   end
 
   create_table "event_attendances", force: :cascade do |t|
