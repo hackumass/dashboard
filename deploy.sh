@@ -40,19 +40,19 @@ echo "Heroku app name: $heroku_name"
 
 echo ' '
 echo "Preparing for deployment to $heroku_name....."
-echo "Fetching remote heroku-$heroku_name"
-git fetch "heroku-$heroku_name"
+echo "Fetching remote $heroku_name"
+git fetch "$heroku_name"
 if [[ "$?" != "0" ]]; then
     echo "Git remote doesn't exist. Do you want to add a new deployment target? (type y or n)"
     read ok
     if [[ $ok = 'y' ]]; then
-        git remote add "heroku-$heroku_name" "https://git.heroku.com/$heroku_name.git"
+        git remote add "$heroku_name" "https://git.heroku.com/$heroku_name.git"
         if [[ "$?" != "0" ]]; then
             echo 'Exiting. Unable to add git remote.'
             exit 1
         else
-            echo "Successfully added git remote heroku-$heroku_name for heroku instance $heroku_name"
-            git fetch "heroku-$heroku_name"
+            echo "Successfully added git remote $heroku_name for heroku instance $heroku_name"
+            git fetch "$heroku_name"
         fi
     else
         echo 'Exiting.'
@@ -106,7 +106,7 @@ git commit --allow-empty -m "Assets precompiled with submodule"
 # Pushing build to Heroku
 echo ' '
 echo 'Pushing build to Heroku....'
-git push -f "heroku-$heroku_name" master
+git push -f "$heroku_name" hum-xii:master
 echo ' '
 echo 'Heroku Build Successful ✅'
 echo ' '
