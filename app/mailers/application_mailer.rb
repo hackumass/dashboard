@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "#{HackumassWeb::Application::CONTACT_EMAIL}"
+  default from: "#{HackumassWeb::Application::DONOTREPLY_EMAIL}"
   layout 'mailer'
 end

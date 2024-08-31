@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-  default from: "#{HackumassWeb::Application::CONTACT_EMAIL}"
+  default from: "#{HackumassWeb::Application::DONOTREPLY_EMAIL}"
 
   def welcome_email(user)
     @user = user;
