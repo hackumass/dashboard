@@ -61,14 +61,13 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   
-  # SMTP settings for SendGrid
+  # SMTP settings for Email Service
   config.action_mailer.smtp_settings = {
-    :user_name => 'apikey', # This is the string literal 'apikey', NOT the ID
-    :password => ENV['SENDGRID_SMTP_SECRET'],
-    :domain => 'hackumass.com',
-    :address => 'smtp.sendgrid.net',
+    :user_name => ENV['AZURE_EMAIL_USERNAME'],
+    :password => ENV['AZURE_EMAIL_PASSWORD'],
+    :address => 'smtp.azurecomm.net',
     :port => 587,
-    :authentication => :plain,
+    :authentication => :login,
     :enable_starttls_auto => true
   }
 
