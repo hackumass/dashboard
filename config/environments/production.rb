@@ -63,11 +63,12 @@ Rails.application.configure do
   
   # SMTP settings for Email Service
   config.action_mailer.smtp_settings = {
-    :user_name => ENV['AZURE_EMAIL_USERNAME'],
-    :password => ENV['AZURE_EMAIL_PASSWORD'],
-    :address => 'smtp.azurecomm.net',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :address => 'smtp.sendgrid.net',
+    :domain => 'hackumass.com',
     :port => 587,
-    :authentication => :login,
+    :authentication => :plain,
     :enable_starttls_auto => true
   }
 
