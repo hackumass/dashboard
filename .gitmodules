@@ -1,3 +1,4 @@
 [submodule "hackathon-config"]
 	path = hackathon-config
 	url = https://github.com/fuseumass/dashboard-config.git
+	branch = hackher2025-config
