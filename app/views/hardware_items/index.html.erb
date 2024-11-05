@@ -1,6 +1,14 @@
+<div class="card mt-5">
+  <div class="card-status bg-info"></div>
+  <div class="card-body d-flex flex-column">
+    <p>Also check out the hardware inventory in other facilities to see what tools and equipment are available for you to use!</p>
+    <%= link_to 'Facilites', facilities_hardware_items_path, class: 'btn btn-primary btn-block', style: '' %>
+  </div>
+</div>
 <div class="page-header">
   <h1 class="page-title">Hardware Inventory</h1>
 </div>
+
 <% if !current_user.is_organizer? %>
 <% if !@current_user.hardware_checkouts.empty?() %>
 <h4>Your Checked Out Hardware</h4>
@@ -85,7 +93,7 @@
           <td><%= item.name %></td>
           <td><%= item.category %></td>
           <td><%= item.count %></td>
-          
+
           <% if item.is_available? == 'Yes' %>
               <td> <span class="label label-success"><%= item.is_available? %></span></td>
           <% else %>

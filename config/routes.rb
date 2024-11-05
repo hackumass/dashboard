@@ -168,6 +168,7 @@ Rails.application.routes.draw do
     resources :hardware_items do
       collection do
         get 'search'
+        get 'facilities'
         get 'all_checked_out' => 'hardware_items#all_checked_out'
         post 'slack_message_all_checked_out' => 'hardware_items#slack_message_all_checked_out'
         post 'slack_message_individual_checkout' => 'hardware_items#slack_message_individual_checkout'
@@ -208,7 +209,7 @@ Rails.application.routes.draw do
   post 'judging/unassign_tables' => 'judging#unassign_tables'
 
   post 'judging/create_judgement' => 'judging#create', :as => :judgements
-  
+
 
   resources :judging, :only => [:edit], :as => :judgement
   get 'judging/:id', :to => 'judging#show', :as => :judgement
