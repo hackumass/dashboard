@@ -168,7 +168,7 @@ Rails.application.routes.draw do
     resources :hardware_items do
       collection do
         get 'search'
-        get 'facilities'
+        get 'facilities' => 'hardware_items#facilities'
         get 'all_checked_out' => 'hardware_items#all_checked_out'
         post 'slack_message_all_checked_out' => 'hardware_items#slack_message_all_checked_out'
         post 'slack_message_individual_checkout' => 'hardware_items#slack_message_individual_checkout'
