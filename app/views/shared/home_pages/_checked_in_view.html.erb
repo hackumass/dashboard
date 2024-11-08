@@ -1,36 +1,12 @@
-<div class="row">	
-  <div class="col-sm-12 col-lg-6 offset-lg-3">	
-    <div class="card">	
-      <div class="card-body d-flex flex-column">
-        <h1 id="countdown" data-hacking-begins="<%= HackumassWeb::Application::HACKING_BEGINS_DATE %>" data-hacking-ends="<%= HackumassWeb::Application::HACKING_ENDS_DATE %>"></h1>		
-      </div>	
-    </div>	
-  </div>	
-</div>
-
-<% if !HackumassWeb::Application::SLACK_ENABLED or current_user.has_slack?  %>
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-12 col-lg-6 offset-lg-3">
     <div class="card">
-      <div class="card-status card-status-left bg-dark"></div>
       <div class="card-body d-flex flex-column">
-        <%= render file: HackumassWeb::Application::copy_for('shared/home_pages/checked_in_participant') %>  
+        <h1 id="countdown" data-hacking-begins="<%= HackumassWeb::Application::HACKING_BEGINS_DATE %>" data-hacking-ends="<%= HackumassWeb::Application::HACKING_ENDS_DATE %>"></h1>
       </div>
     </div>
   </div>
 </div>
-<% else %>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-status card-status-left bg-purple"></div>
-        <div class="card-body d-flex flex-column">
-          <%= render file: HackumassWeb::Application::copy_for('shared/home_pages/participant_no_slack') %>  
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
 
 <div class="row">
   <div class="col-sm-12 col-lg-4">
@@ -44,7 +20,7 @@
           <%= image_tag @qr_image.to_data_url, style: 'height: 300px; width:300px' %>
         </center>
         <p>Have the QR code above ready at the Hardware Table to check out hardware!</p>
-        <%= render file: HackumassWeb::Application::copy_for('shared/home_pages/checked_in_hardware') %>  
+        <%= render file: HackumassWeb::Application::copy_for('shared/home_pages/checked_in_hardware') %>
       </div>
     </div>
   </div>
@@ -78,15 +54,15 @@
     </div>
   </div>
 </div>
-  
+
   <% if HackumassWeb::Application::SLACK_ENABLED %>
     <div class="col-sm-12 col-lg-4">
-        <%= render file: HackumassWeb::Application::copy_for('shared/home_pages/slack_channels') %>    
+        <%= render file: HackumassWeb::Application::copy_for('shared/home_pages/slack_channels') %>
     </div>
   <% end %>
   <% if HackumassWeb::Application::DISCORD_ENABLED %>
     <div class="col-sm-12 col-lg-4">
-        <%= render file: HackumassWeb::Application::copy_for('shared/home_pages/discord_channels') %>    
+        <%= render file: HackumassWeb::Application::copy_for('shared/home_pages/discord_channels') %>
     </div>
   <% end %>
 </div>
