@@ -63,8 +63,8 @@ Rails.application.configure do
   
   # SMTP settings for Email Service
   config.action_mailer.smtp_settings = {
-    :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRID_PASSWORD'],
+    :user_name => 'apikey', 
+    :password => ENV['SENDGRID_SMTP_SECRET'], #api key id
     :address => 'smtp.sendgrid.net',
     :domain => 'hackher413.com',
     :port => 587,
